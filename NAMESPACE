@@ -1,0 +1,3 @@
+exportPattern("^[[:alpha:]]+")
+importFrom("stats", "density", "qt")
+importFrom("utils", "download.file", "unzip")
