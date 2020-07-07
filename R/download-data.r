@@ -52,8 +52,8 @@ download_obaidi <- purrr::partial(download_osf,
 download_hilgard <- function() {
   hilgard <- node_file_info$hilgard$repo
   output_folder <- node_file_info$hilgard$output_folder
-  download.file(hilgard, destfile = file.path(".", output_folder, "master.zip"))
-  hashes <- tools::md5sum(file.path(".", output_folder, "master.zip"))
+  download.file(hilgard, destfile = file.path(output_folder, "master.zip"))
+  hashes <- tools::md5sum(file.path(output_folder, "master.zip"))
   unzip(
     zipfile = file.path(".", output_folder, "master.zip"),
     exdir = file.path(".", output_folder)
@@ -70,7 +70,7 @@ download_hilgard <- function() {
     "SuppFigure1.png", "Supplement.pdf", "violence-condition_hist.png"
   )
 
-  purrr::map(built_files, function(x) file.remove(file.path(".", output_folder, "vvg-2d4d-master", x)))
+  purrr::map(built_files, function(x) file.remove(file.path(output_folder, "vvg-2d4d-master", x)))
 
   return(list(
     node = stringr::str_remove(node_file_info$hilgard$repo,"/archive/master.zip"),
