@@ -52,7 +52,8 @@ download_obaidi <- purrr::partial(download_osf,
 download_hilgard <- function() {
   hilgard <- node_file_info$hilgard$repo
   output_folder <- node_file_info$hilgard$output_folder
-  download.file(hilgard, destfile = file.path(output_folder, "master.zip"))
+  options(download.file.method = "libcurl", url.method = "libcurl")
+  utils::download.file(hilgard, destfile = file.path(output_folder, "master.zip"),cacheOK = TRUE)
   hashes <- tools::md5sum(file.path(output_folder, "master.zip"))
   unzip(
     zipfile = file.path(".", output_folder, "master.zip"),
