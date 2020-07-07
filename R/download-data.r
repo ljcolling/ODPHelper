@@ -70,7 +70,7 @@ download_hilgard <- function() {
     "SuppFigure1.png", "Supplement.pdf", "violence-condition_hist.png"
   )
 
-  map(built_files, function(x) file.remove(file.path(".", output_folder, "vvg-2d4d-master", x)))
+  purrr::map(built_files, function(x) file.remove(file.path(".", output_folder, "vvg-2d4d-master", x)))
 
   return(list(
     node = stringr::str_remove(node_file_info$hilgard$repo,"/archive/master.zip"),
