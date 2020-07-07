@@ -1,0 +1,10 @@
+FROM rocker/verse:4.0.0
+
+RUN R -e "remotes::install_github('ljcolling/ODPHelper', upgrade = 'never')"
+RUN install2.r osfr \
+  tidyverse \
+  knitr \
+  kableExtra \
+  rmarkdown \
+  bookdown \
+  bib2df
