@@ -1,0 +1,4 @@
+FROM lcolling/r-verse-base:4.0.0
+
+# install OSF
+RUN R -e "install.packages('osfr')"
