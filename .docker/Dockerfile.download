@@ -1,4 +1,7 @@
 FROM lcolling/r-verse-base:4.0.0
 
+# install ODP helper
+RUN R -e "remotes::install_github('ljcolling/ODPHelper', upgrade = 'never')"
+
 # install OSF
 RUN R -e "install.packages('osfr')"
