@@ -59,7 +59,7 @@ download_hilgard <- function() {
     exdir = file.path(".", output_folder)
   )
   # remove unnecessary files
-  file.remove(file.path(".", output_folder, "master.zip"))
+  file.remove(file.path(output_folder, "master.zip"))
 
   # files that need to be built
   built_files <- c(
